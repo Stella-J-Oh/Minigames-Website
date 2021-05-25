@@ -11,5 +11,5 @@ Our website is a website full of minigames which include a memory card game, a c
 
 ## Launch codes:
 1. Clone this repository: `git clone https://github.com/Stella-J-Oh/p5-Cows-Go-Moo.git` or `git clone git@github.com:Stella-J-Oh/p5-Cows-Go-Moo.git`
-2. Go to the folder containing the app: `cd cows_go_moo__soh11_cchen14_whuang10_hwilliams10`
+2. Go to the folder containing the app: `cd p5-Cows-Go-Moo`
 3. Run __init__.py: `python app/__init__.py`
