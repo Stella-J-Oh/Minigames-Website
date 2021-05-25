@@ -21,5 +21,6 @@ stellaO -- 2021-05-24 12:31
 Created and updated basic repo structure.
 ================================================================================
 stellaO -- 2021-05-24 12:31
-Group met together to finish design doc and make team flag. 
+Group met together to finish design doc and make team flag. Updated README and 
+worked on linking submodule.
 ================================================================================
