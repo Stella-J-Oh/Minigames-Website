@@ -1,7 +1,7 @@
 # p5-Cows-Go-Moo
 
 ## Roster:
-- Stella Oh(PM)
+- Stella Oh (PM)
 - Winnie Huang
 - Constance Chen
 - Helena Williams
