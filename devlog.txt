@@ -24,3 +24,8 @@ stellaO -- 2021-05-24 20:00
 Group met together to finish design doc and make team flag. Updated README and 
 worked on linking submodule.
 ================================================================================
+stellaO -- 2021-05-28 9:19
+During softdev, we worked on setting up our database and flask app. We struggled
+with setting up our database so we decided to focus on coding the games first and
+working on the leaderboard later.
+================================================================================

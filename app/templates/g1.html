@@ -12,7 +12,14 @@ P5: This is the End
     </head>
 
     <body>
-        <h1 class="display-4">Welcome {{user}}!</h1>
-        <p>content</p>
+        <p>Game 1</p>
+
+        <p>
+            {% for points in g1Scores %}
+            ""{{points}}""
+            <hr class="my-4">
+            {% endfor %}
+        </p>
+
     </body>
 </html>
