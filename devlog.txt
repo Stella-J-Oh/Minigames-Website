@@ -20,7 +20,7 @@ firstL -- TIMESTAMP\n ( e.g.: topherM -- 1999-12-31 23:59 )
 stellaO -- 2021-05-24 12:31
 Created and updated basic repo structure.
 ================================================================================
-stellaO -- 2021-05-24 12:31
+stellaO -- 2021-05-24 20:00
 Group met together to finish design doc and make team flag. Updated README and 
 worked on linking submodule.
 ================================================================================
