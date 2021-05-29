@@ -29,3 +29,6 @@ During softdev, we worked on setting up our database and flask app. We struggled
 with setting up our database so we decided to focus on coding the games first and
 working on the leaderboard later.
 ================================================================================
+stellaO -- 2021-05-29 12:27
+Created js files and linked them to corresponding html files. Created nav bar.
+================================================================================

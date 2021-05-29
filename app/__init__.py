@@ -38,7 +38,7 @@ def loadGame1():
         if (row[0] == user_id):
             g1.append(row[1]) 
 
-    return render_template('g1.html', g1Arr = g1Scores)  
+    return render_template('g1.html', g1Scores = g1Arr)  
 
 @app.route("/g1End", methods = ['GET', 'POST'])
 def g1Leaderboard():
