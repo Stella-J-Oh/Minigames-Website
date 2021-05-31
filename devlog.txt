@@ -32,3 +32,6 @@ working on the leaderboard later.
 stellaO -- 2021-05-29 12:27
 Created js files and linked them to corresponding html files. Created nav bar.
 ================================================================================
+stellaO -- 2021-05-30 20:00
+Group met together to work on coding first game and setting up database functionality.
+================================================================================
