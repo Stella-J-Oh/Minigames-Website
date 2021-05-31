@@ -33,5 +33,11 @@ stellaO -- 2021-05-29 12:27
 Created js files and linked them to corresponding html files. Created nav bar.
 ================================================================================
 stellaO -- 2021-05-30 20:00
-Group met together to work on coding first game and setting up database functionality.
+Group met together to work on coding first game. We encountered an error where our
+javascript file was not loading. On Chrome the JS didn't load and gave us
+"DevTools failed to load SourceMap: Could not load content for 
+chrome-extension://gginmiamniniinhbipmknjiefidjlnob/include.postload.js.map: HTTP error: status code 404, net::ERR_UNKNOWN_URL_SCHEME"
+But on Safari, the JS loaded but only the first version. Once we updated our JS file,
+the updated version would not load. Code works on repl.it however and we will most 
+likely work on it in the future.
 ================================================================================

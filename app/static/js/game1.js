@@ -11,7 +11,7 @@ var bw = 400;
 // Box height
 var bh = 400;
 // Padding
-var p = 10;
+var p = 0;
 
 function drawBoard(){
     for (var x = 0; x <= bw; x += 40) {
@@ -25,7 +25,7 @@ function drawBoard(){
     }
     ctx.strokeStyle = "black";
     ctx.stroke();
-    console.log ("success");
+    console.log ("yay");
 }
 
 drawBoard();
