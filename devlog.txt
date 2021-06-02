@@ -47,6 +47,11 @@ Worked on game and established basic coding for its components: grid, randomizat
 stellaO -- 2021-06-01 20:00 
 Group met together to work on games individually while on same call.
 ================================================================================
+helenaW -- 2021-06-01 21:55
+AHAHA! MY BALLOON CARNAGE IS FULLY FUNCTIONAL!
+that's right baby: in 2 hours I made a playable ripoff of Wii Play's balloon-shooting game.
+got all kinds of qUiRkY aDdOnS planned, but this is some real js work >;D
+================================================================================
 stellaO -- 2021-06-01 9:34
 Met with PMs and discovered hard refresh that resolved our previous issue.
 ================================================================================
