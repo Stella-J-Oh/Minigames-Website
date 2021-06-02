@@ -60,28 +60,52 @@ var drawDot = () => {
     //console.log("drawDot invoked...");
 
     backdrop();
+    console.log(timer);
+    if(timer < 1000){
+      console.log("IMMA DOIN OKAIIIII");
+      //Repaint the balloon
+      ctx.beginPath();
+      b1 = ctx.arc(xpos1, ypos1, radius, 0, 2 * Math.PI);
 
-    //Repaint the balloon
-    ctx.beginPath();
-    b1 = ctx.arc(xpos1, ypos1, radius, 0, 2 * Math.PI);
+      if(popped1 == false){
+        ctx.fillStyle = "#ff0700";
+      } else {
+        ctx.fillStyle = "#87CEEB";
+      };
+      ctx.fill();
+      //ctx.addHitRegion({id: "balloon1"});
 
-    if(popped1 == false){
-      ctx.fillStyle = "#ff0700";
-    } else {
-      ctx.fillStyle = "#87CEEB";
-    };
-    ctx.fill();
-    //ctx.addHitRegion({id: "balloon1"});
+      ctx.fillStyle = "#7cfc00";
+      ctx.fillRect(0,500,600,100);
 
-    ctx.fillStyle = "#7cfc00";
-    ctx.fillRect(0,500,600,100);
+      if(timer > 100){
+        if(timer > 200){
+          ctx.beginPath();
+          ctx.arc(xpos3, ypos3, radius, 0, 2 * Math.PI);
 
-    if(timer > 100){
-      if(timer > 200){
+          if(popped3 == false){
+            ctx.fillStyle = "#ff0700";
+          } else {
+            ctx.fillStyle = "#87CEEB";
+          };
+          ctx.fill();
+          //ctx.addHitRegion({id: "balloon2"});
+
+          ctx.fillStyle = "#7cfc00";
+          ctx.fillRect(0,500,600,100);
+
+
+          ypos3-=2;
+          if(ypos3 < -20){
+            xpos3 = Math.random()*600;
+            ypos3 = 520;
+            popped3 = false;
+          }
+        }
         ctx.beginPath();
-        ctx.arc(xpos3, ypos3, radius, 0, 2 * Math.PI);
+        ctx.arc(xpos2, ypos2, radius, 0, 2 * Math.PI);
 
-        if(popped3 == false){
+        if(popped2 == false){
           ctx.fillStyle = "#ff0700";
         } else {
           ctx.fillStyle = "#87CEEB";
@@ -93,61 +117,22 @@ var drawDot = () => {
         ctx.fillRect(0,500,600,100);
 
 
-        ypos3-=2;
-        if(ypos3 < -20){
-          xpos3 = Math.random()*600;
-          ypos3 = 520;
-          popped3 = false;
+        ypos2-=2;
+        if(ypos2 < -20){
+          xpos2 = Math.random()*600;
+          ypos2 = 520;
+          popped2 = false;
         }
       }
-      ctx.beginPath();
-      ctx.arc(xpos2, ypos2, radius, 0, 2 * Math.PI);
 
-      if(popped2 == false){
-        ctx.fillStyle = "#ff0700";
-      } else {
-        ctx.fillStyle = "#87CEEB";
-      };
-      ctx.fill();
-      //ctx.addHitRegion({id: "balloon2"});
-
-      ctx.fillStyle = "#7cfc00";
-      ctx.fillRect(0,500,600,100);
-
-
-      ypos2-=2;
-      if(ypos2 < -20){
-        xpos2 = Math.random()*600;
-        ypos2 = 520;
-        popped2 = false;
+      window.cancelAnimationFrame(requestID);
+      ypos1-=2;
+      if(ypos1 < -20){
+        xpos1 = Math.random()*600;
+        ypos1 = 520;
+        popped1 = false;
       }
-    }
-
-    window.cancelAnimationFrame(requestID);
-    ypos1-=2;
-    if(ypos1 < -20){
-      xpos1 = Math.random()*600;
-      ypos1 = 520;
-      popped1 = false;
-    }
-    //ctx.stroke();
-    //Update requestID to propagate the animation.
-
-    /*
-    if(growing){
-      radius++;
-      if(radius == 30){
-        growing = false;
-      }
-    }
-    else{
-      radius--;
-      if(radius == 20){
-        growing = true;
-      }
-    }
-    */
-    requestID = window.requestAnimationFrame(drawDot);
+      requestID = window.requestAnimationFrame(drawDot);
 };
 
 function gmp(event, coord){
