@@ -41,3 +41,8 @@ But on Safari, the JS loaded but only the first version. Once we updated our JS 
 the updated version would not load. Code works on repl.it however and we will most 
 likely work on it in the future.
 ================================================================================
+constanceC -- 2021-06-01 18:00
+Worked on game and established basic coding for its components: grid, randomization, etc.
+================================================================================
+stellaO -- 2021-06-01 20:00 
+Group met together to work on games individually while on same call.
