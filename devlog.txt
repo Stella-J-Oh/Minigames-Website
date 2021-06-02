@@ -46,3 +46,7 @@ Worked on game and established basic coding for its components: grid, randomizat
 ================================================================================
 stellaO -- 2021-06-01 20:00 
 Group met together to work on games individually while on same call.
+================================================================================
+stellaO -- 2021-06-01 9:34
+Met with PMs and discovered hard refresh that resolved our previous issue.
+================================================================================

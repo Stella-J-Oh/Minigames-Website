@@ -5,13 +5,20 @@
 
 var canvas = document.getElementById("slate");
 var ctx = canvas.getContext("2d");
+var clearB = document.getElementById("clearButton");
 
 // Box width
-var bw = 400;
+var bw = 600;
 // Box height
-var bh = 400;
+var bh = 600;
 // Padding
 var p = 0;
+
+// clear function
+var clear = () => {
+    console.log("clear invoked...");
+    ctx.clearRect(0, 0, c.width, c.height); // clears the canvas
+};
 
 function drawBoard(){
     for (var x = 0; x <= bw; x += 40) {
@@ -29,6 +36,8 @@ function drawBoard(){
 }
 
 drawBoard();
+
+clearB.addEventListener("click", clear());
 
 
 
