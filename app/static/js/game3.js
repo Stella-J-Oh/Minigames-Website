@@ -1,8 +1,7 @@
-// Team Dingus Skwaa (Maddy Andersen, Helena Williams)
+// Team xoxo :: Stella Oh, Constance Chen, Winnie Huang, Helena Williams
 // SoftDev
-// K26: they lock us in the tower whenever we get caught - canvas based animation
-// 2021-05-05
-
+// P3: ArRESTed Development, JuSt in Time
+// 2021-04-21
 // model for HTML5 canvas-based js animation
 
 // SKEELTON
