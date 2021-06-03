@@ -38,11 +38,66 @@ P5: This is the End
                 </div>
             </div>
         </nav>
-        <h2>Game 2</h2>
-        <div>
-            <canvas height="600" width="600" id="slate" onclick="draw(event)">
-            </canvas>
-        </div>
+        <h2>Color Match!</h2>
+            <div class="play-area">
+                <div class="computer-pane">
+                <div class="computer-circle">
+                    <span class="color-to-match"></span>
+                </div>
+                </div>
+                <div class="controls">
+                <h2>Move the sliders</h2>
+                
+                <span class="slide-colorinfo">Red: 0, Green: 0, Blue: 0</span>
+                
+                <div class="color-details">
+                    <span class="btn-change decrement">-</span>
+                    <span>Red: <span class="red-value color-value">0</span></span>
+                    <span class="btn-change increment">+</span>
+                </div>
+                <div class="slide-container">
+                    <span class="slide decrement-slide">-</span>
+                    <input id="red" type="range" max="255" min="0" value="0" oninput="changeColor()">
+                    <span class="slide increment-slide">+</span>
+                </div>
+                
+                <div class="color-details">
+                    <span class="btn-change decrement">-</span> 
+                    <span>Green: <span class="green-value color-value">0</span></span>
+                    <span class="btn-change increment">+</span>
+                </div>
+                <div class="slide-container">
+                    <span class="slide decrement-slide">-</span>
+                    <input id="green" type="range" max="255" min="0" value="0" oninput="changeColor()">
+                    <span class="slide increment-slide">+</span>
+                </div>
+            
+                <div class="color-details">
+                    <span class="btn-change decrement">-</span> 
+                    <span>Blue: <span class="blue-value color-value">0</span></span>
+                    <span class="btn-change increment">+</span>
+                </div>
+                <div class="slide-container">
+                    <span class="slide decrement-slide">-</span>
+                    <input id="blue" type="range" max="255" min="0" value="0" oninput="changeColor()">
+                    <span class="slide increment-slide">+</span>
+                </div>
+                
+                <div class="game-buttons">
+                    <button id="btn-match">Match</button>
+                    <button id="btn-end-game">Cheat</button>
+                    <button id="reset">Reset</button>
+            
+                </div>
+                <div class="score-text"></div>
+                </div>
+                <div class="user-pane">
+                <div class="user-circle">
+                    <p>Match Me!</p>
+                </div>
+                </div>
+            </div>
+        
 
         <!-- Optional JavaScript -->
         <script src="../static/js/game2.js"></script>
