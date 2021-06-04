@@ -62,3 +62,4 @@ intruction on top of color matching game
 ================================================================================
 stellaO -- 2021-06-03 20:46
 Met with group and worked on finishing up our games and corresponding pages for them.
+Completed game 2 and game 1 as well as game 3, which Helena will add more features to.
