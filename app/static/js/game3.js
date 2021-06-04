@@ -6,7 +6,6 @@
 
 // SKEELTON
 
-
 //access canvas and buttons via DOM
 var c = document.getElementById("slate"); // GET CANVAS
 var dotButton = document.getElementById("buttonGame"); // GET DOT BUTTON
