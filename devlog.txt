@@ -59,3 +59,6 @@ winnieH -- 2021-06-03 19:55
 Pushed FUNCTIONAL color matching game (game 2)! 
 Next steps: adding in linkages to individual games on home page and putting up 
 intruction on top of color matching game
+================================================================================
+stellaO -- 2021-06-03 20:46
+Met with group and worked on finishing up our games and corresponding pages for them.
