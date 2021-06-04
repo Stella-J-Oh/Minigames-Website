@@ -47,6 +47,9 @@ Worked on game and established basic coding for its components: grid, randomizat
 stellaO -- 2021-06-01 20:00 
 Group met together to work on games individually while on same call.
 ================================================================================
+constanceC -- 2021-06-01 21:00 
+Added an assess function and points system. Also worked on minor bugs.
+================================================================================
 helenaW -- 2021-06-01 21:55
 AHAHA! MY BALLOON CARNAGE IS FULLY FUNCTIONAL!
 that's right baby: in 2 hours I made a playable ripoff of Wii Play's balloon-shooting game.
@@ -60,6 +63,8 @@ Pushed FUNCTIONAL color matching game (game 2)!
 Next steps: adding in linkages to individual games on home page and putting up 
 intruction on top of color matching game
 ================================================================================
-stellaO -- 2021-06-03 20:46
+stellaO -- 2021-06-03 20:16
 Met with group and worked on finishing up our games and corresponding pages for them.
-Completed game 2 and game 1 as well as game 3, which Helena will add more features to.
+================================================================================
+constanceC -- 2021-06-03 20:20
+Created reset button and changed canvas size.

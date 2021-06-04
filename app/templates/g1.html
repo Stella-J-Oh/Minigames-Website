@@ -17,14 +17,6 @@ P5: This is the End
         <link rel="stylesheet" href="../static/css/styles.css">
 
         <title>CoolCode Games</title>
-        <style>
-            #test  {
-              background-color: red;
-              height: 100px;
-              width: 25%;
-              float: left;
-            }
-          </style>
     </head>
 
     <body>
@@ -46,20 +38,28 @@ P5: This is the End
                 </div>
             </div>
         </nav>
-        <h2 id="name">Game 1</h2>
-        <div>
-            <canvas height="400" width="400" id="slate">
-             dis dat alt txt tho
-            </canvas>
-        </div>
-        <button id = "clear"> Clear</button>
-        <button id = "done">Done</button>
+        <h2 id="name">Memory Game!</h2>
         <p>
+            Instructions: Memorize the blue tiles presented to you. 
+            When you think you're ready, press "clear" and replicate by clicking the tiles to turn them blue. 
+            (Be careful, you can't undo your chose!)
+            If you think you have it correct, press done to assess your answer. 
+
             {% for points in g1Scores %}
             ""{{points}}""
             <hr class="my-4">
             {% endfor %}
         </p>
+            <div>
+                <canvas height="600" width="600" id="slate">
+                dis dat alt txt tho
+                </canvas>
+            </div>
+            <br>
+            <button id = "clear"> Clear</button>
+            <button id = "done">Done</button>
+            <button id = "reset">Reset</button>
+
 
         <!-- Optional JavaScript -->
         <script type="text/javascript" src="../static/js/game1.js"></script>

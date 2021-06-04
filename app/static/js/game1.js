@@ -17,23 +17,27 @@ var mode = "setting";
 var points = 0;
 
 var color = [
-    [0, 0, 0, 0], 
-    [0, 0, 0, 0], 
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
-];
+    [0, 0, 0, 0, 0, 0], 
+    [0, 0, 0, 0, 0, 0], 
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0]
+    ];
 
 var playerColor = [
-    [0, 0, 0, 0], 
-    [0, 0, 0, 0], 
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0], 
+    [0, 0, 0, 0, 0, 0], 
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0]
 ];
 
 // Box width
-var bw = 400;
+var bw = 600;
 // Box height
-var bh = 400;
+var bh = 600;
 
 // draws grid
 function drawBoard(){
@@ -63,13 +67,13 @@ var clearCanvas = function () {
 // creates a random pattern on the board
 var randomize = function () {
     if (mode == "setting"){
-        for (var i = 0; i < 4; i++) {
-            for (var j = 0; j < 4; j++) {
-                color[i][j] = Math.floor(Math.random() * 2);
+        for (var i = 0; i < 6; i++) {
+            for (var j = 0; j < 6; j++) {
+                color[i][j] = Math.floor(Math.random() * 3);
             }
         }   
-        for (var i = 0; i < 4; i++) {
-            for (var j = 0; j < 4; j++) {
+        for (var i = 0; i < 6; i++) {
+            for (var j = 0; j < 6; j++) {
                 if (color[i][j] == 1){ 
                     ctx.fillRect(i * 100, j * 100, 100, 100); 
                 } 
@@ -99,16 +103,14 @@ var play = (e) =>  {
 var assess = function () {
     if (mode == "playing"){
         mode = "assessing";
-        for (var i = 0; i < 4; i++) {
-            for (var j = 0; j < 4; j++) {
+        for (var i = 0; i < 6; i++) {
+            for (var j = 0; j < 6; j++) {
                 if (color[i][j] != playerColor[i][j]){
                     mode = "gamerOver";
-
                     ctx.fillStyle = "#E27575";
-                    ctx.fillRect(0, 0, 400, 400);
+                    ctx.fillRect(0, 0, 600, 600);
 
                     break;
-                    
                 }
                 color[i][j] = 0;
                 playerColor[i][j] = 0;
@@ -125,9 +127,37 @@ var assess = function () {
     }
 }
 
+var reset = function () {
+    mode = "setting";
+    clearCanvas();
+    points = 0;
+    ctx.fillStyle = "#D2E8EE";
+    color = [
+        [0, 0, 0, 0, 0, 0], 
+        [0, 0, 0, 0, 0, 0], 
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0]
+        ];
+    
+    playerColor = [
+        [0, 0, 0, 0, 0, 0], 
+        [0, 0, 0, 0, 0, 0], 
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0]
+    ];
+
+    mode = "setting";
+    randomize();
+}
+
 randomize();
 
 //event listeners
 c.addEventListener("mousedown", play);
 document.getElementById("clear").addEventListener("click", clearCanvas);
 document.getElementById("done").addEventListener("click", assess);
+document.getElementById("reset").addEventListener("click", reset);
