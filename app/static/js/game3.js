@@ -9,19 +9,16 @@
 //access canvas and buttons via DOM
 var c = document.getElementById("slate"); // GET CANVAS
 var dotButton = document.getElementById("buttonGame"); // GET DOT BUTTON
-var stopButton = document.getElementById("buttonStop"); // GET STOP BUTTON
 
 //prepare to interact with canvas in 2D
-var ctx = c.getContext("2d"); // YOUR CODE HERE
+var ctx = c.getContext("2d");
 
 var requestID;  //init global var for use with animation frames
 
-document.getElementById("points").innerHTML = points;
+//document.getElementById("points").innerHTML = points;
 
-//var clear = function(e) {
 var backdrop = (e) => {
-  //console.log("clear invoked...")
-  ctx.fillStyle = "#87CEEB"
+  ctx.fillStyle = "#87CEEB";
   ctx.fillRect(0,0,600,500);
 
   ctx.fillStyle = "#7cfc00";
@@ -59,7 +56,7 @@ var drawDot = () => {
 
     backdrop();
     console.log(timer);
-    if(timer < 1000){
+    if(timer < 300){
       console.log("IMMA DOIN OKAIIIII");
       //Repaint the balloon
       ctx.beginPath();
@@ -71,8 +68,6 @@ var drawDot = () => {
         ctx.fillStyle = "#87CEEB";
       };
       ctx.fill();
-      //ctx.addHitRegion({id: "balloon1"});
-
       ctx.fillStyle = "#7cfc00";
       ctx.fillRect(0,500,600,100);
 
@@ -87,7 +82,6 @@ var drawDot = () => {
             ctx.fillStyle = "#87CEEB";
           };
           ctx.fill();
-          //ctx.addHitRegion({id: "balloon2"});
 
           ctx.fillStyle = "#7cfc00";
           ctx.fillRect(0,500,600,100);
@@ -98,8 +92,8 @@ var drawDot = () => {
             xpos3 = Math.random()*600;
             ypos3 = 520;
             popped3 = false;
-          }
-        }
+          };
+        };
         ctx.beginPath();
         ctx.arc(xpos2, ypos2, radius, 0, 2 * Math.PI);
 
@@ -120,17 +114,23 @@ var drawDot = () => {
           xpos2 = Math.random()*600;
           ypos2 = 520;
           popped2 = false;
-        }
-      }
+        };
+      };
 
-      window.cancelAnimationFrame(requestID);
+
       ypos1-=2;
       if(ypos1 < -20){
         xpos1 = Math.random()*600;
         ypos1 = 520;
         popped1 = false;
-      }
-      requestID = window.requestAnimationFrame(drawDot);
+      };
+
+    }else{
+      ctx.fillStyle = "black";
+      ctx.fillRect(0,0,600,600);
+    };
+    window.cancelAnimationFrame(requestID);
+    requestID = window.requestAnimationFrame(drawDot);
 };
 
 function gmp(event, coord){
@@ -141,9 +141,9 @@ function gmp(event, coord){
   } else {
     var mouseY = event.clientY - bounds.top;
     return mouseY;
-  }
+  };
+};
 
-}
 var pop = () => {
   var mouseX = gmp(event, "x");
   var mouseY = gmp(event, "y");
@@ -160,15 +160,8 @@ var pop = () => {
   };
 };
 
-var runGame = () => {
-  drawDot();
-};
-
 var hitboxCheck = function(bx, by, mx, my){
   if(mx > (bx - 20) && mx < (bx + 20)){
-    //console.log("BY:");
-    //console.log(by);
-    //console.log(my);
     if(my > (by - 20) && my < (by + 20)){
       console.log("OI'VE BIN POPPED.");
       points++;
@@ -178,5 +171,5 @@ var hitboxCheck = function(bx, by, mx, my){
   };
 };
 
-dotButton.addEventListener( "click", drawDot );
-c.addEventListener( "click", pop );
+dotButton.addEventListener("click", drawDot);
+c.addEventListener("click", pop);
