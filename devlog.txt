@@ -55,3 +55,7 @@ got all kinds of qUiRkY aDdOnS planned, but this is some real js work >;D
 stellaO -- 2021-06-01 9:34
 Met with PMs and discovered hard refresh that resolved our previous issue.
 ================================================================================
+winnieH -- 2021-06-03 19:55
+Pushed FUNCTIONAL color matching game (game 2)! 
+Next steps: adding in linkages to individual games on home page and putting up 
+intruction on top of color matching game
