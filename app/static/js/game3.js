@@ -42,6 +42,8 @@ var popped3 = false;
 var timer = 0;
 var points = 0;
 
+var moveSpd = 2.4;
+
 //stage setup
 ctx.fillStyle = "#87CEEB";
 ctx.fillRect(0,0,600,600);
@@ -56,7 +58,7 @@ var drawDot = () => {
 
     backdrop();
     console.log(timer);
-    if(timer < 300){
+    if(timer < 2000){
       console.log("IMMA DOIN OKAIIIII");
       //Repaint the balloon
       ctx.beginPath();
@@ -71,8 +73,8 @@ var drawDot = () => {
       ctx.fillStyle = "#7cfc00";
       ctx.fillRect(0,500,600,100);
 
-      if(timer > 100){
-        if(timer > 200){
+      if(timer > 150){
+        if(timer > 300){
           ctx.beginPath();
           ctx.arc(xpos3, ypos3, radius, 0, 2 * Math.PI);
 
@@ -87,7 +89,7 @@ var drawDot = () => {
           ctx.fillRect(0,500,600,100);
 
 
-          ypos3-=2;
+          ypos3-=moveSpd;
           if(ypos3 < -20){
             xpos3 = Math.random()*600;
             ypos3 = 520;
@@ -109,7 +111,7 @@ var drawDot = () => {
         ctx.fillRect(0,500,600,100);
 
 
-        ypos2-=2;
+        ypos2-=moveSpd;
         if(ypos2 < -20){
           xpos2 = Math.random()*600;
           ypos2 = 520;
@@ -118,7 +120,7 @@ var drawDot = () => {
       };
 
 
-      ypos1-=2;
+      ypos1-=moveSpd;
       if(ypos1 < -20){
         xpos1 = Math.random()*600;
         ypos1 = 520;
@@ -128,6 +130,9 @@ var drawDot = () => {
     }else{
       ctx.fillStyle = "black";
       ctx.fillRect(0,0,600,600);
+      ctx.fillStyle = "white";
+      ctx.font = '50px serif';
+      ctx.fillText("Game Over! Your score: "+points,20,300);
     };
     window.cancelAnimationFrame(requestID);
     requestID = window.requestAnimationFrame(drawDot);
