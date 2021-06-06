@@ -80,5 +80,8 @@ Just they wait until I get to the Beeg Yoshi UFOs...
 but yeh, balon gaem wurkz.
 ================================================================================
 stellaO -- 2021-06-05 18:00
-Worked on game 4. 
+Worked on basic structure of game 4.
+================================================================================
+stellaO -- 2021-06-05 20:00
+Group met together to work on leaderboard and home page navigation links.
 ================================================================================
