@@ -109,6 +109,9 @@ var assess = function () {
                     mode = "gamerOver";
                     ctx.fillStyle = "#E27575";
                     ctx.fillRect(0, 0, 600, 600);
+                    ctx.fillStyle = "black";
+                    ctx.font = "25px serif";
+                    ctx.fillText('You lose', 250, 300);
 
                     break;
                 }
