@@ -77,6 +77,9 @@ var randomize = function () {
                 if (color[i][j] == 1){ 
                     ctx.fillRect(i * 100, j * 100, 100, 100); 
                 } 
+                else{
+                    color[i][j] = 0;
+                }
             }
         }
     drawBoard();
@@ -105,6 +108,10 @@ var assess = function () {
         mode = "assessing";
         for (var i = 0; i < 6; i++) {
             for (var j = 0; j < 6; j++) {
+
+                // console.log (color[i][j]);
+                // console.log(playerColor[i][j]);
+
                 if (color[i][j] != playerColor[i][j]){
                     mode = "gamerOver";
                     ctx.fillStyle = "#E27575";
