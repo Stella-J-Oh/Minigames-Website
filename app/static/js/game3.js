@@ -43,6 +43,7 @@ var timer = 0;
 var points = 0;
 
 var moveSpd = 2.4;
+var maxTime = 2000;
 
 //stage setup
 ctx.fillStyle = "#87CEEB";
@@ -53,13 +54,9 @@ ctx.fillRect(0,500,600,100);
 
 var drawDot = () => {
     timer++;
-    //Wipe the canvas
-    //console.log("drawDot invoked...");
-
     backdrop();
-    console.log(timer);
-    if(timer < 2000){
-      console.log("IMMA DOIN OKAIIIII");
+
+    if(timer < maxTime){
       //Repaint the balloon
       ctx.beginPath();
       b1 = ctx.arc(xpos1, ypos1, radius, 0, 2 * Math.PI);
@@ -126,7 +123,9 @@ var drawDot = () => {
         ypos1 = 520;
         popped1 = false;
       };
-
+      ctx.fillStyle = "white";
+      ctx.font = '50px serif';
+      ctx.fillText(points, 500, 50);
     }else{
       ctx.fillStyle = "black";
       ctx.fillRect(0,0,600,600);
@@ -150,18 +149,20 @@ function gmp(event, coord){
 };
 
 var pop = () => {
-  var mouseX = gmp(event, "x");
-  var mouseY = gmp(event, "y");
-  //console.log(mouseX);
-  //console.log(mouseY);
-  if(hitboxCheck(xpos1, ypos1, mouseX, mouseY)){
-    popped1 = true;
-  };
-  if(hitboxCheck(xpos2, ypos2, mouseX, mouseY)){
-    popped2 = true;
-  };
-  if(hitboxCheck(xpos3, ypos3, mouseX, mouseY)){
-    popped3 = true;
+  if(timer < maxTime){
+    var mouseX = gmp(event, "x");
+    var mouseY = gmp(event, "y");
+    //console.log(mouseX);
+    //console.log(mouseY);
+    if(hitboxCheck(xpos1, ypos1, mouseX, mouseY)){
+      popped1 = true;
+    };
+    if(hitboxCheck(xpos2, ypos2, mouseX, mouseY)){
+      popped2 = true;
+    };
+    if(hitboxCheck(xpos3, ypos3, mouseX, mouseY)){
+      popped3 = true;
+    };
   };
 };
 
