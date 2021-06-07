@@ -6,9 +6,14 @@
 //retrieve node in DOM via ID
 var c = document.getElementById("slate");
 var playB = document.getElementById("playButton");
+var submit = document.getElementById('submitL');
 
 //instantiate a CanvasRenderingContext2D object
 var ctx = c.getContext("2d");
+
+//words
+const words = ['hello', 'love', 'happy'];
+var word = words[Math.floor(Math.random() * words.length)];
 
 var setUp = () => {
   // draw the structure
@@ -21,7 +26,7 @@ var setUp = () => {
 
   // incorrect letters box
   ctx.font = "25px serif";
-  ctx.fillText('Incorrect letters:', 200, 450);
+  ctx.fillText('Incorrect letters:', 200, 470);
 }
 
 var head = () => {
@@ -79,16 +84,10 @@ var leg2 = () => {
   ctx.stroke();
 }
 
-const words = ['hello', 'love', 'happy'];
-
-var getNewWord = () => {
-  // retrieve random word from hangmanWords
-  return words[Math.floor(Math.random() * words.length)];
-}
-
 var printBlankWord = (word) => {
   // print blanks for current word
   console.log(word);
+
   ctx.font = "80px serif";
   splitWord = word.split('');
   blanks = '';
@@ -97,12 +96,6 @@ var printBlankWord = (word) => {
   }
   var startPoint = 10 + 600/(splitWord.length);
   ctx.fillText(blanks, startPoint, 400);
-}
-
-var guessLetter = (word) => {
-  // allows user to guess letter and returns true or false based on current word 
-  let letter = prompt('Please guess a letter.');
-  return word.includes(letter);
 }
 
 var addToHangman = () => {
@@ -138,8 +131,17 @@ var lostGame = (playHangman) => {
 var playGame = () => {
   // starts game and plays through to end
   setUp();
-  var word = getNewWord();
   printBlankWord(word);
+  
+  var guessLetter = (word) => {
+    // allows user to guess letter and returns true or false based on current word 
+    var letter = document.getElementById('inputLetter').value;
+    console.log(letter);
+    console.log(word.includes(letter));
+  }
+
+  submit.addEventListener("click", guessLetter(word));
 }
 
 playB.addEventListener("click", playGame);
+
