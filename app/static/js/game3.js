@@ -42,6 +42,9 @@ var popped3 = false;
 var timer = 0;
 var points = 0;
 
+var moveSpd = 2.4;
+var maxTime = 2000;
+
 //stage setup
 ctx.fillStyle = "#87CEEB";
 ctx.fillRect(0,0,600,600);
@@ -51,13 +54,9 @@ ctx.fillRect(0,500,600,100);
 
 var drawDot = () => {
     timer++;
-    //Wipe the canvas
-    //console.log("drawDot invoked...");
-
     backdrop();
-    console.log(timer);
-    if(timer < 300){
-      console.log("IMMA DOIN OKAIIIII");
+
+    if(timer < maxTime){
       //Repaint the balloon
       ctx.beginPath();
       b1 = ctx.arc(xpos1, ypos1, radius, 0, 2 * Math.PI);
@@ -71,8 +70,8 @@ var drawDot = () => {
       ctx.fillStyle = "#7cfc00";
       ctx.fillRect(0,500,600,100);
 
-      if(timer > 100){
-        if(timer > 200){
+      if(timer > 150){
+        if(timer > 300){
           ctx.beginPath();
           ctx.arc(xpos3, ypos3, radius, 0, 2 * Math.PI);
 
@@ -87,7 +86,7 @@ var drawDot = () => {
           ctx.fillRect(0,500,600,100);
 
 
-          ypos3-=2;
+          ypos3-=moveSpd;
           if(ypos3 < -20){
             xpos3 = Math.random()*600;
             ypos3 = 520;
@@ -109,7 +108,7 @@ var drawDot = () => {
         ctx.fillRect(0,500,600,100);
 
 
-        ypos2-=2;
+        ypos2-=moveSpd;
         if(ypos2 < -20){
           xpos2 = Math.random()*600;
           ypos2 = 520;
@@ -118,16 +117,21 @@ var drawDot = () => {
       };
 
 
-      ypos1-=2;
+      ypos1-=moveSpd;
       if(ypos1 < -20){
         xpos1 = Math.random()*600;
         ypos1 = 520;
         popped1 = false;
       };
-
+      ctx.fillStyle = "white";
+      ctx.font = '50px serif';
+      ctx.fillText(points, 500, 50);
     }else{
       ctx.fillStyle = "black";
       ctx.fillRect(0,0,600,600);
+      ctx.fillStyle = "white";
+      ctx.font = '50px serif';
+      ctx.fillText("Game Over! Your score: "+points,20,300);
     };
     window.cancelAnimationFrame(requestID);
     requestID = window.requestAnimationFrame(drawDot);
@@ -145,18 +149,20 @@ function gmp(event, coord){
 };
 
 var pop = () => {
-  var mouseX = gmp(event, "x");
-  var mouseY = gmp(event, "y");
-  //console.log(mouseX);
-  //console.log(mouseY);
-  if(hitboxCheck(xpos1, ypos1, mouseX, mouseY)){
-    popped1 = true;
-  };
-  if(hitboxCheck(xpos2, ypos2, mouseX, mouseY)){
-    popped2 = true;
-  };
-  if(hitboxCheck(xpos3, ypos3, mouseX, mouseY)){
-    popped3 = true;
+  if(timer < maxTime){
+    var mouseX = gmp(event, "x");
+    var mouseY = gmp(event, "y");
+    //console.log(mouseX);
+    //console.log(mouseY);
+    if(hitboxCheck(xpos1, ypos1, mouseX, mouseY)){
+      popped1 = true;
+    };
+    if(hitboxCheck(xpos2, ypos2, mouseX, mouseY)){
+      popped2 = true;
+    };
+    if(hitboxCheck(xpos3, ypos3, mouseX, mouseY)){
+      popped3 = true;
+    };
   };
 };
 

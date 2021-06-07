@@ -85,6 +85,9 @@ Worked on basic structure of game 4.
 stellaO -- 2021-06-05 20:00
 Group met together to work on leaderboard and home page navigation links.
 ================================================================================
-stellaO -- 2021-06-05 12:43
-Continued working on game 4.
+stellaO -- 2021-06-06 12:43
+Worked on game 4.
+================================================================================
+constanceC -- 2021-06-05 20:16
+Fixed bug with scoring
 ================================================================================
