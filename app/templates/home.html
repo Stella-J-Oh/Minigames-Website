@@ -7,65 +7,95 @@ P5: This is the End
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <!-- css -->
-        <link rel="stylesheet" href="../static/css/styles.css">
 
-        <title>CoolCode Games</title>
-    </head>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- css -->
+  <link rel="stylesheet" href="../static/css/styles.css">
 
-    <body>
-        <h1>CoolCode Games</h1>
-        <!-- Nav Bar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    <a class="nav-link" href="g1">Memory Game</a>
-                    <a class="nav-link" href="g2">Color Match</a>
-                    <a class="nav-link" href="g3">Wii Play Ripoff</a>
-                    <a class="nav-link" href="g4">Hangman</a>
-                </div>
-              </div>
-            </div>
-          </nav>
+  <title>CoolCode Games</title>
+</head>
 
-        <h1 class="display-4">Welcome {{user}}!</h1>
+<body>
+  <h1>CoolCode Games</h1>
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link" href="g1">Memory Game</a>
+          <a class="nav-link" href="g2">Color Match</a>
+          <a class="nav-link" href="g3">Wii Play Ripoff</a>
+          <a class="nav-link" href="g4">Hangman</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-        <form action = "/g1">
-          <input type = "submit" value = "Game1">
+  <h1 class="display-4">Welcome {{user}}!</h1>
+
+  <br>
+
+  <table style="width:50%">
+    <tr>
+      <td>
+        <h3>Memory Game</h3>
+        <form action="/g1">
+          <input type="image" value="Game1" width="300px" height="300px" src="../static/game1.png">
         </form>
+      </td>
 
-        <form action = "/g2">
-          <input type = "submit" value = "Game2">
+      <td>
+        <h3>Color Match</h3>
+        <form action="/g2">
+          <input type="image" value="Game2" width="300px" height="300px" src="../static/game2.png">
         </form>
+      </td>
+    </tr>
 
-        <form action = "/g3">
-          <input type = "submit" value = "Game3">
+    <tr>
+      <td>
+        <h3>Wii Play Ripoff</h3>
+        <form action="/g3">
+          <input type="image" value="Game3" width="300px" height="300px" src="../static/game3.png">
         </form>
+      </td>
 
-        <form action = "/g4">
-          <input type = "submit" value = "Game4">
+      <td>
+        <h3>Hangman</h3>
+        <form action="/g4">
+          <input type="image" value="Game4" width="300px" height="300px" src="../static/game4.png">
         </form>
+      </td>
+    </tr>
 
-        <form action = "/logout">
-            <input type = "submit" value = "Logout" class="btn btn-dark btn-large">
-          </form>
+  </table>
 
-        <!-- Optional JavaScript -->
-        <script src="../static/js/home.js"></script>
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </body>
+  <form action="/logout">
+    <input type="submit" value="Logout" class="btn btn-dark btn-large">
+  </form>
+  <!-- Optional JavaScript -->
+  <script src="../static/js/home.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
