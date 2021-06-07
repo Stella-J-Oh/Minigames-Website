@@ -21,7 +21,7 @@ stellaO -- 2021-05-24 12:31
 Created and updated basic repo structure.
 ================================================================================
 stellaO -- 2021-05-24 20:00
-Group met together to finish design doc and make team flag. Updated README and 
+Group met together to finish design doc and make team flag. Updated README and
 worked on linking submodule.
 ================================================================================
 stellaO -- 2021-05-28 9:19
@@ -35,19 +35,19 @@ Created js files and linked them to corresponding html files. Created nav bar.
 stellaO -- 2021-05-30 20:00
 Group met together to work on coding first game. We encountered an error where our
 javascript file was not loading. On Chrome the JS didn't load and gave us
-"DevTools failed to load SourceMap: Could not load content for 
+"DevTools failed to load SourceMap: Could not load content for
 chrome-extension://gginmiamniniinhbipmknjiefidjlnob/include.postload.js.map: HTTP error: status code 404, net::ERR_UNKNOWN_URL_SCHEME"
 But on Safari, the JS loaded but only the first version. Once we updated our JS file,
-the updated version would not load. Code works on repl.it however and we will most 
+the updated version would not load. Code works on repl.it however and we will most
 likely work on it in the future.
 ================================================================================
 constanceC -- 2021-06-01 18:00
 Worked on game and established basic coding for its components: grid, randomization, etc.
 ================================================================================
-stellaO -- 2021-06-01 20:00 
+stellaO -- 2021-06-01 20:00
 Group met together to work on games individually while on same call.
 ================================================================================
-constanceC -- 2021-06-01 21:00 
+constanceC -- 2021-06-01 21:00
 Added an assess function and points system. Also worked on minor bugs.
 ================================================================================
 helenaW -- 2021-06-01 21:55
@@ -59,8 +59,8 @@ stellaO -- 2021-06-01 9:34
 Met with PMs and discovered hard refresh that resolved our previous issue.
 ================================================================================
 winnieH -- 2021-06-03 19:55
-Pushed FUNCTIONAL color matching game (game 2)! 
-Next steps: adding in linkages to individual games on home page and putting up 
+Pushed FUNCTIONAL color matching game (game 2)!
+Next steps: adding in linkages to individual games on home page and putting up
 intruction on top of color matching game
 ================================================================================
 stellaO -- 2021-06-03 20:16
@@ -87,4 +87,8 @@ Group met together to work on leaderboard and home page navigation links.
 ================================================================================
 constanceC -- 2021-06-05 20:16
 Fixed bug with scoring
+================================================================================
+helenaW -- 2021-06-06 20:31
+My points system works after a full FIVE MINUTES of effort. I am clearly a PRO.
+Next up is the stages system.
 ================================================================================
