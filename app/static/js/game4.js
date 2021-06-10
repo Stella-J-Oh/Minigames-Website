@@ -14,7 +14,8 @@ var ctx = c.getContext("2d");
 //words
 const words = ['hello', 'love', 'happy'];
 var word = words[Math.floor(Math.random() * words.length)];
-var userGuesses = word.length();
+var userGuesses = 6;
+const wordLen = word.length;
 var splitWord = word.split('');
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 var wordGuess = '';
@@ -111,15 +112,11 @@ var fillWord = (word, guessLetter = '') => {
 }
 
 var wonGame = () => {
-  ctx.fillRect(0,0,600,600);
-  ctx.fillStyle = "green";
   ctx.font = '50px serif';
   ctx.fillText("You Won!");
 }    
 
-var lostGame = (playHangman) => {
-  ctx.fillRect(0,0,600,600);
-  ctx.fillStyle = "red";
+var lostGame = () => {
   ctx.font = '50px serif';
   ctx.fillText("Game Over!");
 }
@@ -131,41 +128,35 @@ var playGame = () => {
     //getting input value
     var guessLetter = document.getElementById("letter").value;
     console.log(guessLetter);
-    return word.includes(guessLetter);
+    if (word.includes(guessLetter)) {
+      //printing the corresponding letter in word on canvas
+      userGuesses--;
+    }
+    else {
+      userGuesses--;
+      if (userGuesses == 5) {
+        head();
+      }
+      else if (userGuesses == 4) {
+        torso(); 
+      }
+      else if (userGuesses == 3) {
+        leg1();
+      }
+      else if (userGuesses == 2) {
+        leg2();
+      }
+      else if (userGuesses == 1) {
+        arm1();
+      }
+      else if (userGuesses == 0) {
+        arm2();
+        lostGame();
+      }
+    }
+    console.log(userGuesses);
   }
   guessB.addEventListener("click", getLetter);
-
-  if (getLetter()) {
-    //printing the corresponding letter in word on canvas
-    userGuesses--;
-  }
-  else {
-    if (userGuesses == 5) {
-      head();
-      userGuesses--;
-    }
-    else if (userGuesses == 4) {
-      torso();
-      userGuesses--;
-    }
-    else if (userGuesses == 3) {
-      leg1();
-      userGuesses--;
-    }
-    else if (userGuesses == 2) {
-      leg2();
-      userGuesses--;
-    }
-    else if (userGuesses == 1) {
-      arm1();
-      userGuesses--;
-    }
-    else if (userGuesses == 0) {
-      arm2();
-      lostGame();
-    }
-  }
-
 }
 
 playB.addEventListener("click", playGame);
