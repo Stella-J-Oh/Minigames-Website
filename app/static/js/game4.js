@@ -6,7 +6,7 @@
 //retrieve node in DOM via ID
 var c = document.getElementById("slate");
 var playB = document.getElementById("playButton");
-var submit = document.getElementById('submitL');
+var guessB = document.getElementById("guessButton");
 
 //instantiate a CanvasRenderingContext2D object
 var ctx = c.getContext("2d");
@@ -14,6 +14,10 @@ var ctx = c.getContext("2d");
 //words
 const words = ['hello', 'love', 'happy'];
 var word = words[Math.floor(Math.random() * words.length)];
+var userGuesses = word.length();
+var splitWord = word.split('');
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+var wordGuess = '';
 
 var setUp = () => {
   // draw the structure
@@ -27,6 +31,20 @@ var setUp = () => {
   // incorrect letters box
   ctx.font = "25px serif";
   ctx.fillText('Incorrect letters:', 200, 470);
+
+  var printBlankWord = (word) => {
+    // print blanks for current word
+    console.log(word);
+  
+    ctx.font = "80px serif";
+    blanks = '';
+    for (let i = 0; i < splitWord.length; i++) {
+      blanks += "_ ";  
+    }
+    var startPoint = 10 + 600/(splitWord.length);
+    ctx.fillText(blanks, startPoint, 400);
+  }
+  printBlankWord(word);
 }
 
 var head = () => {
@@ -36,18 +54,10 @@ var head = () => {
   ctx.stroke();
 }
 
-var upperTorso = () => {
+var torso = () => {
   //draw the upper torso
   ctx.beginPath();
   ctx.moveTo(350,225);
-  ctx.lineTo(350,250);
-  ctx.stroke();
-}
-
-var lowerTorso = () => {
-  //draw the lower torso
-  ctx.beginPath();
-  ctx.moveTo(350,250);
   ctx.lineTo(350,270);
   ctx.stroke();
 }
@@ -84,24 +94,6 @@ var leg2 = () => {
   ctx.stroke();
 }
 
-var printBlankWord = (word) => {
-  // print blanks for current word
-  console.log(word);
-
-  ctx.font = "80px serif";
-  splitWord = word.split('');
-  blanks = '';
-  for (let i = 0; i < splitWord.length; i++) {
-    blanks += "_ ";  
-  }
-  var startPoint = 10 + 600/(splitWord.length);
-  ctx.fillText(blanks, startPoint, 400);
-}
-
-var addToHangman = () => {
-  // add new element to hangman 
-}
-
 var fillWord = (word, guessLetter = '') => {
   // add correctly guessed letter to blanks
   let blankWord = printBlankWord(word);
@@ -119,28 +111,61 @@ var fillWord = (word, guessLetter = '') => {
 }
 
 var wonGame = () => {
-  // checks if word is complete
-  return (word.length === fillWord());
-  }    
+  ctx.fillRect(0,0,600,600);
+  ctx.fillStyle = "green";
+  ctx.font = '50px serif';
+  ctx.fillText("You Won!");
+}    
 
 var lostGame = (playHangman) => {
-  // checks whether playHangman equal to completedHangman
-  return playHangman === completedHangman;
+  ctx.fillRect(0,0,600,600);
+  ctx.fillStyle = "red";
+  ctx.font = '50px serif';
+  ctx.fillText("Game Over!");
 }
 
 var playGame = () => {
   // starts game and plays through to end
   setUp();
-  printBlankWord(word);
-  
-  var guessLetter = (word) => {
-    // allows user to guess letter and returns true or false based on current word 
-    var letter = document.getElementById('inputLetter').value;
-    console.log(letter);
-    console.log(word.includes(letter));
+  var getLetter = () => {
+    //getting input value
+    var guessLetter = document.getElementById("letter").value;
+    console.log(guessLetter);
+    return word.includes(guessLetter);
+  }
+  guessB.addEventListener("click", getLetter);
+
+  if (getLetter()) {
+    //printing the corresponding letter in word on canvas
+    userGuesses--;
+  }
+  else {
+    if (userGuesses == 5) {
+      head();
+      userGuesses--;
+    }
+    else if (userGuesses == 4) {
+      torso();
+      userGuesses--;
+    }
+    else if (userGuesses == 3) {
+      leg1();
+      userGuesses--;
+    }
+    else if (userGuesses == 2) {
+      leg2();
+      userGuesses--;
+    }
+    else if (userGuesses == 1) {
+      arm1();
+      userGuesses--;
+    }
+    else if (userGuesses == 0) {
+      arm2();
+      lostGame();
+    }
   }
 
-  submit.addEventListener("click", guessLetter(word));
 }
 
 playB.addEventListener("click", playGame);
