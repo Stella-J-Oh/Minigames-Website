@@ -19,18 +19,19 @@ P5: This is the End
     <title>CoolCode Games</title>
   </head>
 
-  <body style="background-color: #ddfff7; color: #2e5266;">
-    <nav class="navbar navbar-light .bg-transparent" id="webName" style="background-color: #2e5266;">
-      <span class="navbar-brand mb-0 h1" style="color: #ddfff7;">CoolCode Games</span>
+  <body>
+    <h1>CoolCode Games</h1>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <a class="navbar-brand" aria-current="page">Login</a>
     </nav>
 
-    <div class="jumbotron" style="background-color: #ddfff7">
+    <div class="jumbotron">
       <h1 class="display-4" style="font-weight: bold;">Login</h1>
       <h3> {{error_type}} </h3>
       <hr class="my-4">
       <form action="/auth" method = "post">
-        <input type="text" placeholder="Username" name="username" style="background-color: #ddfff7; color: #2e5266;"><br><br>
-        <input type="password" placeholder="Password" name="password" style="background-color: #ddfff7; color: #2e5266;"><br><br>
+        <input type="text" placeholder="Username" name="username" ><br><br>
+        <input type="password" placeholder="Password" name="password" ><br><br>
         <input type="submit" name="sub1" class="btn btn-info">
       </form>
       <br>

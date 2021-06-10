@@ -7,18 +7,22 @@
 var c = document.getElementById("slate");
 var playB = document.getElementById("playButton");
 var guessB = document.getElementById("guessButton");
+var restart = document.getElementById("restart");
+var message = document.getElementById("error");
 
 //instantiate a CanvasRenderingContext2D object
 var ctx = c.getContext("2d");
 
 //words
 const words = ['hello', 'love', 'happy'];
-var word = words[Math.floor(Math.random() * words.length)];
-var userGuesses = 6;
-const wordLen = word.length;
-var splitWord = word.split('');
-const alphabet = "abcdefghijklmnopqrstuvwxyz";
-var wordGuess = '';
+var word = ""; 
+var userGuesses = 0;
+var splitWord = []; 
+var userWord = [];
+var incorrectLetters = [];
+var startPos = -1;
+
+console.log(userWord);
 
 var setUp = () => {
   // draw the structure
@@ -33,19 +37,28 @@ var setUp = () => {
   ctx.font = "25px serif";
   ctx.fillText('Incorrect letters:', 200, 470);
 
+  userGuesses = 6;
+  word = words[Math.floor(Math.random() * words.length)];
+  splitWord = word.split('');
+
   var printBlankWord = (word) => {
     // print blanks for current word
     console.log(word);
-  
+
     ctx.font = "80px serif";
-    blanks = '';
     for (let i = 0; i < splitWord.length; i++) {
-      blanks += "_ ";  
+      userWord.push("_ ");
     }
-    var startPoint = 10 + 600/(splitWord.length);
-    ctx.fillText(blanks, startPoint, 400);
+    startPos = 600/(splitWord.length) - 10;
+    var blanks = userWord.join("")
+    ctx.fillText(blanks, startPos, 400);
   }
   printBlankWord(word);
+}
+
+var reStart = () => {
+  context.clearRect(0,0,c.width, c.height);
+  setUp();
 }
 
 var head = () => {
@@ -95,69 +108,79 @@ var leg2 = () => {
   ctx.stroke();
 }
 
-var fillWord = (word, guessLetter = '') => {
-  // add correctly guessed letter to blanks
-  let blankWord = printBlankWord(word);
-  if (guessLetter()) {
-    // if letter is correct, fill in blanks
-    word.split('').forEach(function(letter) {
-      if (!letter === guessLetter) {
-        letter = letter.replace('_');
-      }
-    });
-  }
-  word = word.join('');
-  printWord(word);
-  return word;
-}
-
 var wonGame = () => {
   ctx.font = '50px serif';
-  ctx.fillText("You Won!");
-}    
+  ctx.fillText("You Won!", 100, 300);
+}
 
 var lostGame = () => {
   ctx.font = '50px serif';
-  ctx.fillText("Game Over!");
+  ctx.fillText("Game Over!", 150, 300);
+}
+
+var getLetter = () => {
+  //getting input value
+  var guessLetter = document.getElementById("letter").value;
+  console.log(guessLetter);
+  return guessLetter;
 }
 
 var playGame = () => {
-  // starts game and plays through to end
-  setUp();
-  var getLetter = () => {
-    //getting input value
-    var guessLetter = document.getElementById("letter").value;
-    console.log(guessLetter);
-    if (word.includes(guessLetter)) {
-      //printing the corresponding letter in word on canvas
-      userGuesses--;
+  daLetter = getLetter();
+  document.getElementById("letter").value = '';
+  if(word.includes(daLetter)){
+    for(var k = 0; k < splitWord.length; k++){
+      ctx.fillStyle = "white";
+      ctx.clearRect(0, 353, 600, 100);
+      ctx.fillRect(0, 350, 600, 100);
+      ctx.font = "50px serif";
+      ctx.fillStyle = "black";
+      if(daLetter.localeCompare(splitWord[k]) == 0 ) {
+        userWord[k] = daLetter;
+      }
+      var fucc = userWord.join("  ");
+      ctx.font = "50px serif";
+      ctx.fillText(fucc, startPos, 400);
+    }
+    console.log(userWord);
+    userGuesses--;
+  }
+  else {
+    if (incorrectLetters.indexOf(daLetter) != -1) {
+      message.textContent = "Oops! Looks like you already guessed this."
     }
     else {
-      userGuesses--;
-      if (userGuesses == 5) {
-        head();
-      }
-      else if (userGuesses == 4) {
-        torso(); 
-      }
-      else if (userGuesses == 3) {
-        leg1();
-      }
-      else if (userGuesses == 2) {
-        leg2();
-      }
-      else if (userGuesses == 1) {
-        arm1();
-      }
-      else if (userGuesses == 0) {
-        arm2();
-        lostGame();
-      }
+      message.textContent = "";
+      incorrectLetters.push(daLetter);
+      var incorrect = incorrectLetters.join(", ");
+      ctx.font = "30px serif";
+      ctx.fillText(incorrect, 150, 500);
+    }
+
+    userGuesses--;
+    if (userGuesses == 5) {
+      head();
+    }
+    else if (userGuesses == 4) {
+      torso();
+    }
+    else if (userGuesses == 3) {
+      leg1();
+    }
+    else if (userGuesses == 2) {
+      leg2();
+    }
+    else if (userGuesses == 1) {
+      arm1();
+    }
+    else if (userGuesses == 0) {
+      arm2();
+      lostGame();
     }
     console.log(userGuesses);
   }
-  guessB.addEventListener("click", getLetter);
 }
 
-playB.addEventListener("click", playGame);
-
+playB.addEventListener("click", setUp);
+guessB.addEventListener("click", playGame);
+restart.addEventListener("click", setUp);

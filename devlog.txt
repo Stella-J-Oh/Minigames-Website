@@ -98,3 +98,12 @@ Next up is the stages system.
 constanceC -- 2021-06-07 10:16
 Worked on home page
 ================================================================================
+stellaO -- 2021-06-07 08:25
+Helena and I worked on trying to make a leaderboard but encountered issues and 
+decided to not do it anymore.
+================================================================================
+stellaO -- 2021-06-07 20:38
+Helena, Constance, and I met together at 8 pm to work on game 4 (hangman), and through
+much trial and error, and testing, we were successfully able to get it functioning!
+I love my groupmates THEY ARE THE BEST!
+================================================================================
