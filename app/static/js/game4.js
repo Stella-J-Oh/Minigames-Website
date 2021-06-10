@@ -14,10 +14,12 @@ var ctx = c.getContext("2d");
 //words
 const words = ['hello', 'love', 'happy'];
 var word = words[Math.floor(Math.random() * words.length)];
-var userGuesses = word.length();
+var userGuesses = 6;
 var splitWord = word.split('');
-const alphabet = "abcdefghijklmnopqrstuvwxyz";
-var wordGuess = '';
+var userWord = [];
+var startPos = -1;
+
+console.log(userWord);
 
 var setUp = () => {
   // draw the structure
@@ -35,14 +37,14 @@ var setUp = () => {
   var printBlankWord = (word) => {
     // print blanks for current word
     console.log(word);
-  
+
     ctx.font = "80px serif";
-    blanks = '';
     for (let i = 0; i < splitWord.length; i++) {
-      blanks += "_ ";  
+      userWord.push("_ ");
     }
-    var startPoint = 10 + 600/(splitWord.length);
-    ctx.fillText(blanks, startPoint, 400);
+    startPos = 10 + 600/(splitWord.length);
+    var blanks = userWord.join("")
+    ctx.fillText(blanks, startPos, 400);
   }
   printBlankWord(word);
 }
@@ -115,7 +117,7 @@ var wonGame = () => {
   ctx.fillStyle = "green";
   ctx.font = '50px serif';
   ctx.fillText("You Won!");
-}    
+}
 
 var lostGame = (playHangman) => {
   ctx.fillRect(0,0,600,600);
@@ -124,49 +126,57 @@ var lostGame = (playHangman) => {
   ctx.fillText("Game Over!");
 }
 
-var playGame = () => {
-  // starts game and plays through to end
-  setUp();
-  var getLetter = () => {
-    //getting input value
-    var guessLetter = document.getElementById("letter").value;
-    console.log(guessLetter);
-    return word.includes(guessLetter);
-  }
-  guessB.addEventListener("click", getLetter);
+var getLetter = () => {
+  //getting input value
+  var guessLetter = document.getElementById("letter").value;
+  console.log(guessLetter);
+  return guessLetter;
+}
 
-  if (getLetter()) {
-    //printing the corresponding letter in word on canvas
+var playGame = () => {
+  //setUp();
+  daLetter = getLetter()
+  if(word.includes(daLetter)){
+    for(var k = 0; k < splitWord.length; k++){
+      ctx.fillStyle = "white";
+      ctx.clearRect(0, 350, 600, 450);
+      ctx.fillRect(0, 350, 600, 450);
+      ctx.font = "80px serif";
+      ctx.fillStyle = "black";
+      if(daLetter.localeCompare(splitWord[k]) == 0 ) {
+        userWord[k] = daLetter;
+      }
+      var fucc = userWord.join("  ");
+      ctx.font = "80px serif";
+      ctx.fillText(fucc, startPos, 400);
+    }
+    console.log(userWord);
     userGuesses--;
   }
   else {
+    userGuesses--;
     if (userGuesses == 5) {
       head();
-      userGuesses--;
     }
     else if (userGuesses == 4) {
       torso();
-      userGuesses--;
     }
     else if (userGuesses == 3) {
       leg1();
-      userGuesses--;
     }
     else if (userGuesses == 2) {
       leg2();
-      userGuesses--;
     }
     else if (userGuesses == 1) {
       arm1();
-      userGuesses--;
     }
     else if (userGuesses == 0) {
       arm2();
       lostGame();
     }
+    console.log(userGuesses);
   }
-
 }
 
-playB.addEventListener("click", playGame);
-
+playB.addEventListener("click", setUp);
+guessB.addEventListener("click", playGame);
