@@ -14,7 +14,7 @@ var message = document.getElementById("error");
 var ctx = c.getContext("2d");
 
 //words
-const words = ['hello', 'love', 'happy'];
+const words = ['hello', 'love', 'happy', 'zing', 'zest', 'brain', 'thinker', 'trouble', 'star', 'pride'];
 var word = ""; 
 var userGuesses = 0;
 var splitWord = []; 
@@ -56,9 +56,8 @@ var setUp = () => {
   printBlankWord(word);
 }
 
-var reStart = () => {
-  ctx.clearRect(0,0,c.width, c.height);
-  setUp();
+var reset = () => {
+  location.reload();
 }
 
 var head = () => {
@@ -216,4 +215,4 @@ var playGame = () => {
 
 playB.addEventListener("click", setUp);
 guessB.addEventListener("click", playGame);
-restart.addEventListener("click", reStart);
+restart.addEventListener("click", reset)

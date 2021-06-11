@@ -27,27 +27,7 @@ def returnHome():
 
 @app.route("/g1", methods = ['GET', 'POST'])
 def loadGame1():
-    db = sqlite3.connect("p5database.db")
-    c = db.cursor()
-
-    user_id = session.get("user")
-    c.execute('SELECT * FROM g1')
-
-    g1Arr = []
-    for row in c:
-        if (row[0] == user_id):
-            g1.append(row[1]) 
-
-    return render_template('g1.html', g1Scores = g1Arr)  
-
-@app.route("/g1End", methods = ['GET', 'POST'])
-def g1Leaderboard():
-    username = session.get("user")
-    catList = c.execute('SELECT * FROM cats').fetchall()[-1]
-    url = catList[0]
-
-    ##add to db
-    c.execute('INSERT INTO g1 (username, points) VALUES (?,?)',(username, url)) 
+    return render_template('g1.html')  
 
 @app.route("/g2", methods = ['GET', 'POST'])
 def loadGame2():
@@ -59,7 +39,7 @@ def loadGame3():
 
 @app.route("/g4", methods = ['GET', 'POST'])
 def loadGame4():
-    return render_template('g4.html')     
+    return render_template('g4.html')  
 
 #Displays login page and removes user from session
 @app.route("/logout", methods = ['GET', 'POST'])
