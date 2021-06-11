@@ -24,7 +24,7 @@ P5: This is the End
 <body>
   <h1>CoolCode Games</h1>
   <!-- Nav Bar -->
-  <nav class="navbar navbar-expand navbar-light bg-light">
+  <nav class="navbar navbar-expand navbar-custom">
     <a class="navbar-brand" aria-current="page" href="/">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -46,8 +46,8 @@ P5: This is the End
       </ul>
     </div>
 </nav>
-
-  <h1 class="display-4">Welcome {{user}}!</h1>
+  <br>
+  <h2 class="display-4" >Welcome, {{user}}!</h2>
 
   <br>
 
@@ -56,38 +56,38 @@ P5: This is the End
       <td>
         <h3>Memory Game</h3>
         <form action="/g1">
-          <input type="image" value="Game1" width="300px" height="300px" src="../static/game1.png">
+          <input type="image" value="Game1" width="300px" height="300px" style= "border-radius: 15px;"src="../static/game1.png">
+        
         </form>
       </td>
 
       <td>
         <h3>Color Match</h3>
         <form action="/g2">
-          <input type="image" value="Game2" width="300px" height="300px" src="../static/game2.png">
+          <input type="image" value="Game2" width="300px" height="300px" style= "border-radius: 15px;" src="../static/game2.png">
+        
         </form>
       </td>
     </tr>
-
     <tr>
       <td>
         <h3>Wii Play Ripoff</h3>
         <form action="/g3">
-          <input type="image" value="Game3" width="300px" height="300px" src="../static/game3.png">
+          <input type="image" value="Game3" width="300px" height="300px" style= "border-radius: 15px;" src="../static/game3.png">
         </form>
       </td>
 
       <td>
         <h3>Hangman</h3>
         <form action="/g4">
-          <input type="image" value="Game4" width="300px" height="300px" src="../static/game4.png">
+          <input type="image" value="Game4" width="300px" height="300px" style= "border-radius: 15px;" src="../static/game4.png">
         </form>
       </td>
     </tr>
-
   </table>
-
+  <br>
   <form action="/logout">
-    <input type="submit" value="Logout" class="btn btn-dark btn-large">
+    <input type="submit" value="Logout" class="btn btn-default">
   </form>
   <!-- Optional JavaScript -->
   <script src="../static/js/home.js"></script>

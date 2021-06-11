@@ -19,26 +19,26 @@ P5: This is the End
     <title>CoolCode Games</title>
   </head>
 
-  <body>
+  <body style="background-color: #001233; color: white;">
     <h1>CoolCode Games</h1>
-    <nav class="navbar navbar-expand navbar-light bg-light">
+    <nav class="navbar navbar-expand navbar-custom" style = "color:#7d8597;">
       <a class="navbar-brand" aria-current="page">Register</a>
     </nav>
 
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-color: #001233;">
       <h3> {{error_type}} </h3>
       <h1 class="display-4" style="font-weight: bold;">Register</h1>
       <hr class="my-4">
       <form action="/register_auth" method="post">
-        <input type="text" placeholder="Username" name="new_username" class="text" ><br><br>
-        <input type="password" placeholder="Password" name="new_password_1">
+        <input type="text" placeholder="Username" name="new_username" class="text"><br><br>
+        <input type="password" placeholder="Password" name="new_password_1" >
         <input type="password" placeholder="Confirm Password" name="new_password_2">
         <br><br>
-        <input type="submit" name="sub1" class="btn btn-info">
+        <input type="submit" name="sub1" class="btn btn-default">
       </form>
       <br>
       <form action="/logout">
-        <input type="submit" value="Login Page" class="btn btn-outline-info">
+        <input type="submit" value="Login Page" class ="btn btn-secondary">
       </form>
     </div>
 

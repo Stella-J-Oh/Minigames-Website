@@ -22,7 +22,7 @@ P5: This is the End
     <body>
         <h1>CoolCode Games</h1>
         <!-- Nav Bar -->
-        <nav class="navbar navbar-expand navbar-light bg-light">
+        <nav class="navbar navbar-expand navbar-custom">
             <a class="navbar-brand" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -44,9 +44,12 @@ P5: This is the End
               </ul>
             </div>
         </nav>
-
-        <h2>Color Match!</h2>
-          <p>Instructions: Try to match the randomly generated color on the left by adjusting the red, green, and blue values using the sliders or clicking "-" and "+". Once you are confident with your values, click "Match" and see if you are right! If not, try again, or if you give up, cheating is always an option...</p>
+            <br>
+        <h2>Color Match</h2><br>
+        <div class="instruct">
+            <h5>Instructions:</h5>
+            <p>Try to match the randomly generated color on the left by adjusting the red, green, and blue values using the sliders or clicking "-" and "+". Once you are confident with your values, click "Match" and see if you are right! If not, try again, or if you give up, cheating is always an option...</p>
+        </div>
             <div class="play-area">
                 <div class="computer-pane">
                 <div class="computer-circle">
@@ -92,9 +95,9 @@ P5: This is the End
                 </div>
 
                 <div class="game-buttons">
-                    <button id="btn-match">Match</button>
-                    <button id="btn-end-game">Cheat</button>
-                    <button id="reset">Reset</button>
+                    <button id="btn-match" type="button" class=" btn btn-default">Match</button>
+                    <button id="btn-end-game" type="button" class=" btn btn-default">Cheat</button>
+                    <button id="reset" type="button" class=" btn btn-default">Play Again</button>
 
                 </div>
                 <div class="score-text"></div>

@@ -23,7 +23,7 @@ P5: This is the End
         <h1>CoolCode Games</h1>
         <!-- Nav Bar -->
         
-        <nav class="navbar navbar-expand navbar-light bg-light">
+        <nav class="navbar navbar-expand navbar-custom">
             <a class="navbar-brand" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -45,29 +45,34 @@ P5: This is the End
               </ul>
             </div>
         </nav>
-
-        <h2 id="name">Memory Game!</h2>
-        <p>
-            Instructions: Memorize the blue tiles presented to you.
-            When you think you're ready, press "clear" and replicate by clicking the tiles to turn them blue.
-            (Be careful, you can't undo your choice!)
-            If you think you have it correct, press done to assess your answer.
-
-            {% for points in g1Scores %}
-            ""{{points}}""
-            <hr class="my-4">
-            {% endfor %}
-        </p>
-        <button id = "start"> Play</button>
+        
+        <br>
+        <h2 id="name">Memory Game</h2>
+        <br>
+        <div class= "instruct">
+            <h5>Instructions:</h5>
+            <p>
+                Memorize the blue tiles presented to you.
+                When you think you're ready, press "clear" and replicate by clicking the tiles to turn them blue.
+                (Be careful, you can't undo your choice!)
+                If you think you have it correct, press done to assess your answer.
+                To reset the game, click "Play Again".
+            </p>
+        </div>
+        <br>
+        
+        <button  id = "start" type="button" class=" btn btn-default"> Play</button>
+        <button type="button" id = "reset" class="btn btn-default" >Play Again</button>
+        <br><br>
             <div>
                 <canvas height="600" width="600" id="slate">
                 dis dat alt txt tho
                 </canvas>
             </div>
             <br>
-            <button id = "clear"> Clear</button>
-            <button id = "done">Done</button>
-            <button id = "reset">Play Again</button>
+        <button type="button" id = "clear" class="btn btn-default"> Clear</button>
+        <button type="button" id = "done" class="btn btn-default">Done</button>
+            
 
 
         <!-- Optional JavaScript -->

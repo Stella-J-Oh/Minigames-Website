@@ -9,6 +9,7 @@
 //access canvas and buttons via DOM
 var c = document.getElementById("slate"); // GET CANVAS
 var dotButton = document.getElementById("buttonGame"); // GET DOT BUTTON
+var resetButton = document.getElementById("buttonRestart");
 
 //prepare to interact with canvas in 2D
 var ctx = c.getContext("2d");
@@ -42,15 +43,17 @@ var popped3 = false;
 var timer = 0;
 var points = 0;
 
-var moveSpd = 2.4;
+var moveSpd = 3;
 var maxTime = 2000;
 
 //stage setup
+/*
 ctx.fillStyle = "#87CEEB";
 ctx.fillRect(0,0,600,600);
 
 ctx.fillStyle = "#7cfc00";
 ctx.fillRect(0,500,600,100);
+*/
 
 var drawDot = () => {
     timer++;
@@ -127,11 +130,11 @@ var drawDot = () => {
       ctx.font = '50px serif';
       ctx.fillText(points, 500, 50);
     }else{
+      ctx.fillStyle = "#7d8597";
+      ctx.fillRect(0, 0, 600, 600);
       ctx.fillStyle = "black";
-      ctx.fillRect(0,0,600,600);
-      ctx.fillStyle = "white";
-      ctx.font = '50px serif';
-      ctx.fillText("Game Over! Your score: "+points,20,300);
+      ctx.font = "25px serif";
+      ctx.fillText("Game Over! Your score: "+points, 175, 300);
     };
     window.cancelAnimationFrame(requestID);
     requestID = window.requestAnimationFrame(drawDot);
@@ -177,5 +180,20 @@ var hitboxCheck = function(bx, by, mx, my){
   };
 };
 
+var restort = function() {
+  ctx.clearRect(0,0,c.width, c.height);
+  xpos1 = Math.random()*600;
+  xpos2 = Math.random()*600;
+  xpos3 = Math.random()*600;
+  ypos1 = 520;
+  ypos2 = 520;
+  ypos3 = 520;
+  timer = 0;
+  points = 0;
+  backdrop();
+  drawDot();
+};
+
 dotButton.addEventListener("click", drawDot);
 c.addEventListener("click", pop);
+resetButton.addEventListener("click", restort);

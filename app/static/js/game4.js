@@ -109,14 +109,22 @@ var leg2 = () => {
 }
 
 var wonGame = () => {
-  ctx.font = '50px serif';
-  ctx.fillText("Game Over!", 150, 300); 
+  ctx.clearRect(0,0,c.width, c.height);
+  ctx.fillStyle = "#7d8597";
+  ctx.fillRect(0, 0, 600, 600);
+  ctx.fillStyle = "black";
+  ctx.font = "25px serif";
+  ctx.fillText('Game Over', 250, 300);
 }
 
 var lostGame = () => {
-  ctx.font = '30px serif';
-  ctx.fillText("Game Over!", 150, 300);  
-  ctx.fillText("The correct word was... " + word, 50, 330)
+  ctx.clearRect(0,0,c.width, c.height);
+  ctx.fillStyle = "#7d8597";
+  ctx.fillRect(0, 0, 600, 600);
+  ctx.fillStyle = "black";
+  ctx.font = "25px serif";
+  ctx.fillText('Game Over', 250, 300); 
+  ctx.fillText("The correct word was... " + word, 175, 330)
 }
 
 var getLetter = () => {
@@ -138,6 +146,11 @@ var compareArr = () => {
 var playGame = () => {
   daLetter = getLetter();
   document.getElementById("letter").value = '';
+  console.log(userGuesses);
+  ctx.clearRect(480, 0, 520, 100);
+  ctx.fillStyle = "black";
+  ctx.font = '50px serif';
+  ctx.fillText(userGuesses, 500, 50);
   if(word.includes(daLetter)){
     if (userWord.indexOf(daLetter) != -1) {
       message.textContent = "Oops! Looks like you already guessed this.";
@@ -159,12 +172,8 @@ var playGame = () => {
       ctx.fillText(fucc, startPos, 400);
       console.log("printed");
     }
-
-    if (compareArr()) {
-      wonGame();
-    };
-    console.log(userWord);
   }
+  
   else {
     if (incorrectLetters.indexOf(daLetter) != -1) {
       message.textContent = "Oops! Looks like you already guessed this.";
@@ -178,7 +187,6 @@ var playGame = () => {
       ctx.fillText(incorrect, 150, 500);
     }
     userGuesses--;
-
   }
 
   if (userGuesses == 5) {
@@ -200,11 +208,10 @@ var playGame = () => {
     arm2();
     lostGame();
   }
-  console.log(userGuesses);
-  ctx.clearRect(480, 0, 520, 100);
-  ctx.fillStyle = "black";
-  ctx.font = '50px serif';
-  ctx.fillText(userGuesses, 500, 50);
+  
+  if (compareArr()) {
+    wonGame();
+  } 
 }
 
 playB.addEventListener("click", setUp);

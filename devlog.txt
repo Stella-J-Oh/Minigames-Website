@@ -107,3 +107,7 @@ Helena, Constance, and I met together at 8 pm to work on game 4 (hangman), and t
 much trial and error, and testing, we were successfully able to get it functioning!
 I love my groupmates THEY ARE THE BEST!
 ================================================================================
+stellaO -- 2021-06-10 21:34
+Group met together at 8 and we worked on css and making our games look more uniform.
+We finished our project and are pleased with how it looks!
+================================================================================

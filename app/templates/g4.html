@@ -22,7 +22,7 @@ P5: This is the End
     <body>
         <h1>CoolCode Games</h1>
         <!-- Nav Bar -->
-        <nav class="navbar navbar-expand navbar-light bg-light">
+        <nav class="navbar navbar-expand navbar-custom">
             <a class="navbar-brand" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -44,26 +44,37 @@ P5: This is the End
               </ul>
             </div>
         </nav>
+        <br>
+        <h2>Hangman</h2><br>
+        <div class = "instruct">
+            <h5>Instructions:</h5>
+        <p>Press play to start the game. You have 6 lives. Enter a single letter in the guessing field and CLICK the button "Guess." 
+            Do NOT press the Enter key when submitting your guess. If you enter a letter in the word, you do not lose a life and are 
+            allowed to continue guessing. If you enter a letter that is not in the word, you will lose 1 life. Keep guessing letters 
+            until you guess the word or run out of lives. No humans were harmed in the process of coding this game</p>
+        </div>
+        <br>
         
-        <h2>Hangman</h2>
-        <p>No humans were harmed in the process of coding this game</p>
-        <button id="playButton">
+        <button id="playButton" type="button" class=" btn btn-default">
             Play
         </button>
-        <button id="restart">
+        <button id="restart" type="button" class=" btn btn-default">
             Play Again
-          </button>
+        </button>
+        <br><br>
         <div>
             <canvas height="600" width="600" id="slate">
             </canvas>
         </div>
-
+        <br>
         <form>
             <input type="text" id="letter" placeholder="Guess a letter" maxlength="1" minlength="1">
-            <button type="button" id="guessButton">Guess</button>
+            <button type="button" id="guessButton" class=" btn btn-default" >Guess</button>
         </form>
+        
 
         <p id = "error"></p>
+        
 
         <!-- Optional JavaScript -->
         <script src="../static/js/game4.js"></script>

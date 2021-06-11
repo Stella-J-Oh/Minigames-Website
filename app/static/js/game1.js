@@ -118,11 +118,11 @@ var assess = function () {
 
                 if (color[i][j] != playerColor[i][j]){
                     mode = "gamerOver";
-                    ctx.fillStyle = "#E27575";
+                    ctx.fillStyle = "#7d8597";
                     ctx.fillRect(0, 0, 600, 600);
                     ctx.fillStyle = "black";
                     ctx.font = "25px serif";
-                    ctx.fillText('You lose', 250, 300);
+                    ctx.fillText("Game Over! Your score: "+points, 175, 300);
 
                     break;
                 }

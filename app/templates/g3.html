@@ -23,7 +23,7 @@ P5: This is the End
         <h1>CoolCode Games</h1>
         <!-- Nav Bar -->
 
-        <nav class="navbar navbar-expand navbar-light bg-light">
+        <nav class="navbar navbar-expand navbar-custom">
             <a class="navbar-brand" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -46,11 +46,22 @@ P5: This is the End
             </div>
         </nav>
         
-        
-        <h2>A Blatant Wii Play Ripoff</h2>
-        <button id="buttonGame">
+        <br>
+        <h2>A Blatant Wii Play Ripoff</h2><br>
+        <div class= "instruct">
+            <h5>Instructions:</h5>
+            <p>
+                Quick, someone's let loose a bunch of very plot-convenient balloons! Pop them with your mouse for points.
+            </p>
+        </div>
+        <br>
+        <button id="buttonGame" type="button" class=" btn btn-default">
             Play
         </button>
+        <button id="buttonRestart" type="button" class=" btn btn-default">
+            Play Again
+        </button>
+        <br><br>
         <div>
             <canvas height="600" width="600" id="slate">
             </canvas>
