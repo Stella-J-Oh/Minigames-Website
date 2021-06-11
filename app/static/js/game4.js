@@ -57,7 +57,7 @@ var setUp = () => {
 }
 
 var reStart = () => {
-  context.clearRect(0,0,c.width, c.height);
+  ctx.clearRect(0,0,c.width, c.height);
   setUp();
 }
 
@@ -110,12 +110,13 @@ var leg2 = () => {
 
 var wonGame = () => {
   ctx.font = '50px serif';
-  ctx.fillText("You Won!", 100, 300);
+  ctx.fillText("Game Over!", 150, 300); 
 }
 
 var lostGame = () => {
-  ctx.font = '50px serif';
-  ctx.fillText("Game Over!", 150, 300);
+  ctx.font = '30px serif';
+  ctx.fillText("Game Over!", 150, 300);  
+  ctx.fillText("The correct word was... " + word, 50, 330)
 }
 
 var getLetter = () => {
@@ -125,29 +126,49 @@ var getLetter = () => {
   return guessLetter;
 }
 
+var compareArr = () => {
+  for (var i = 0; i < userWord.length; i++) {
+     if (userWord[i] != splitWord[i]) {
+       return false;
+     }
+  }
+  return true;
+}
+
 var playGame = () => {
   daLetter = getLetter();
   document.getElementById("letter").value = '';
   if(word.includes(daLetter)){
+    if (userWord.indexOf(daLetter) != -1) {
+      message.textContent = "Oops! Looks like you already guessed this.";
+    }
     for(var k = 0; k < splitWord.length; k++){
+      console.log("bouta print");
       ctx.fillStyle = "white";
       ctx.clearRect(0, 353, 600, 100);
       ctx.fillRect(0, 350, 600, 100);
       ctx.font = "50px serif";
       ctx.fillStyle = "black";
-      if(daLetter.localeCompare(splitWord[k]) == 0 ) {
+
+      if (daLetter.localeCompare(splitWord[k]) == 0) {
         userWord[k] = daLetter;
+        console.log("add to word");
       }
       var fucc = userWord.join("  ");
       ctx.font = "50px serif";
       ctx.fillText(fucc, startPos, 400);
+      console.log("printed");
     }
+
+    if (compareArr()) {
+      wonGame();
+    };
     console.log(userWord);
-    userGuesses--;
   }
   else {
     if (incorrectLetters.indexOf(daLetter) != -1) {
-      message.textContent = "Oops! Looks like you already guessed this."
+      message.textContent = "Oops! Looks like you already guessed this.";
+      userGuesses++;
     }
     else {
       message.textContent = "";
@@ -156,31 +177,36 @@ var playGame = () => {
       ctx.font = "30px serif";
       ctx.fillText(incorrect, 150, 500);
     }
-
     userGuesses--;
-    if (userGuesses == 5) {
-      head();
-    }
-    else if (userGuesses == 4) {
-      torso();
-    }
-    else if (userGuesses == 3) {
-      leg1();
-    }
-    else if (userGuesses == 2) {
-      leg2();
-    }
-    else if (userGuesses == 1) {
-      arm1();
-    }
-    else if (userGuesses == 0) {
-      arm2();
-      lostGame();
-    }
-    console.log(userGuesses);
+
   }
+
+  if (userGuesses == 5) {
+    head();
+  }
+  else if (userGuesses == 4) {
+    torso();
+  }
+  else if (userGuesses == 3) {
+    leg1();
+  }
+  else if (userGuesses == 2) {
+    leg2();
+  }
+  else if (userGuesses == 1) {
+    arm1();
+  }
+  else if (userGuesses == 0) {
+    arm2();
+    lostGame();
+  }
+  console.log(userGuesses);
+  ctx.clearRect(480, 0, 520, 100);
+  ctx.fillStyle = "black";
+  ctx.font = '50px serif';
+  ctx.fillText(userGuesses, 500, 50);
 }
 
 playB.addEventListener("click", setUp);
 guessB.addEventListener("click", playGame);
-restart.addEventListener("click", setUp);
+restart.addEventListener("click", reStart);

@@ -83,6 +83,10 @@ var randomize = function () {
             }
         }
     drawBoard();
+    ctx.fillStyle = "black";
+    ctx.font = '50px serif';
+    ctx.fillText(points, 550, 50);
+    ctx.fillStyle = "#D2E8EE";
     }
 }
 
@@ -163,11 +167,13 @@ var reset = function () {
     mode = "setting";
     randomize();
 }
-
-randomize();
+var start = function () {
+    randomize();
+}
 
 //event listeners
 c.addEventListener("mousedown", play);
+document.getElementById("start").addEventListener("click", start);
 document.getElementById("clear").addEventListener("click", clearCanvas);
 document.getElementById("done").addEventListener("click", assess);
 document.getElementById("reset").addEventListener("click", reset);
